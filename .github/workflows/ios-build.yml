@@ -1,0 +1,100 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest
+        
+    - name: Display Xcode version
+      run: xcodebuild -version
+      
+    - name: List project files
+      run: ls -la
+      
+    - name: Find Xcode project or workspace
+      id: find_project
+      run: |
+        # Change to DRIVE directory where the project is located
+        cd DRIVE
+        
+        # Look for .xcworkspace first (preferred for CocoaPods), then .xcodeproj
+        if ls *.xcworkspace 1> /dev/null 2>&1; then
+          PROJECT_PATH=$(ls *.xcworkspace | head -n 1)
+          echo "workspace=$PROJECT_PATH" >> $GITHUB_OUTPUT
+          echo "Found workspace: $PROJECT_PATH"
+        elif ls *.xcodeproj 1> /dev/null 2>&1; then
+          PROJECT_PATH=$(ls *.xcodeproj | head -n 1)
+          echo "project=$PROJECT_PATH" >> $GITHUB_OUTPUT
+          echo "Found project: $PROJECT_PATH"
+        else
+          echo "Error: No .xcworkspace or .xcodeproj found"
+          exit 1
+        fi
+        
+    - name: Make build script executable
+      run: chmod +x scripts/build.sh
+      
+    - name: Build archive using custom script
+      run: ./scripts/build.sh
+      
+    - name: Verify archive was created
+      run: |
+        ls -la build/
+        ls -la build/DRIVE.xcarchive/ 2>/dev/null || echo "Archive not found at expected location"
+      working-directory: DRIVE
+        
+    - name: Create ExportOptions.plist
+      run: |
+        cat > ExportOptions.plist << 'EOF'
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+            <key>method</key>
+            <string>development</string>
+            <key>signingStyle</key>
+            <string>manual</string>
+            <key>stripSwiftSymbols</key>
+            <true/>
+            <key>teamID</key>
+            <string></string>
+        </dict>
+        </plist>
+        EOF
+        
+    - name: Export IPA
+      run: |
+        xcodebuild -exportArchive \
+          -archivePath "build/DRIVE.xcarchive" \
+          -exportOptionsPlist "ExportOptions.plist" \
+          -exportPath "build/export"
+      working-directory: DRIVE
+          
+    - name: Verify IPA was created
+      run: |
+        ls -la build/export/
+        ls -la build/export/DRIVE.ipa 2>/dev/null && echo "IPA successfully created!" || echo "IPA not found"
+      working-directory: DRIVE
+        
+    - name: Upload IPA
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: DRIVE-ipa
+        path: DRIVE/build/export/DRIVE.ipa
+        retention-days: 30
