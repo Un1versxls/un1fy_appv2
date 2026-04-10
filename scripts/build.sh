@@ -2,8 +2,8 @@
 
 set -e
 
-# Change to DRIVE directory where the project is located
-cd "$(dirname "$0")/../DRIVE"
+# Stay in the repository root where the project is located
+# cd "$(dirname "$0")/.."  # Uncomment if running from scripts/ and want to go to repo root
 
 PROJECT="DRIVE.xcodeproj"
 SCHEME="DRIVE"
