@@ -29,20 +29,18 @@ jobs:
     - name: Find Xcode project or workspace
       id: find_project
       run: |
-        # Change to DRIVE directory where the project is located
-        cd DRIVE
-        
+        # We'll stay in repository root and let the build script find the project
         # Look for .xcworkspace first (preferred for CocoaPods), then .xcodeproj
-        if ls *.xcworkspace 1> /dev/null 2>&1; then
-          PROJECT_PATH=$(ls *.xcworkspace | head -n 1)
+        if ls DRIVE/*.xcworkspace 1> /dev/null 2>&1; then
+          PROJECT_PATH=$(ls DRIVE/*.xcworkspace | head -n 1)
           echo "workspace=$PROJECT_PATH" >> $GITHUB_OUTPUT
           echo "Found workspace: $PROJECT_PATH"
-        elif ls *.xcodeproj 1> /dev/null 2>&1; then
-          PROJECT_PATH=$(ls *.xcodeproj | head -n 1)
+        elif ls DRIVE/*.xcodeproj 1> /dev/null 2>&1; then
+          PROJECT_PATH=$(ls DRIVE/*.xcodeproj | head -n 1)
           echo "project=$PROJECT_PATH" >> $GITHUB_OUTPUT
           echo "Found project: $PROJECT_PATH"
         else
-          echo "Error: No .xcworkspace or .xcodeproj found"
+          echo "Error: No .xcworkspace or .xcodeproj found in DRIVE directory"
           exit 1
         fi
         
@@ -56,7 +54,6 @@ jobs:
       run: |
         ls -la build/
         ls -la build/DRIVE.xcarchive/ 2>/dev/null || echo "Archive not found at expected location"
-      working-directory: DRIVE
         
     - name: Create ExportOptions.plist
       run: |
@@ -76,14 +73,6 @@ jobs:
         </dict>
         </plist>
         EOF
-        
-    - name: Export IPA
-      run: |
-        xcodebuild -exportArchive \
-          -archivePath "build/DRIVE.xcarchive" \
-          -exportOptionsPlist "ExportOptions.plist" \
-          -exportPath "build/export"
-      working-directory: DRIVE
           
     - name: Verify IPA was created
       run: |

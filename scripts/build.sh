@@ -2,15 +2,17 @@
 
 set -e
 
-# Determine if we're running from repo root or DRIVE directory
-if [ -f "../DRIVE.xcodeproj/project.pbxproj" ]; then
-  # We're in the DRIVE directory
-  PROJECT="../DRIVE.xcodeproj"
-elif [ -f "DRIVE.xcodeproj/project.pbxproj" ]; then
+# Determine project location based on current directory
+if [ -f "DRIVE.xcodeproj/project.pbxproj" ]; then
   # We're in the repository root
   PROJECT="DRIVE.xcodeproj"
+elif [ -f "./DRIVE.xcodeproj/project.pbxproj" ]; then
+  # We're in a subdirectory (like when workflow cd's to DRIVE)
+  PROJECT="./DRIVE.xcodeproj"
 else
   echo "Error: Could not find DRIVE.xcodeproj"
+  echo "Current directory: $(pwd)"
+  echo "Contents: $(ls -la)"
   exit 1
 fi
 
