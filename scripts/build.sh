@@ -2,10 +2,18 @@
 
 set -e
 
-# Stay in the repository root where the project is located
-# cd "$(dirname "$0")/.."  # Uncomment if running from scripts/ and want to go to repo root
+# Determine if we're running from repo root or DRIVE directory
+if [ -f "../DRIVE.xcodeproj/project.pbxproj" ]; then
+  # We're in the DRIVE directory
+  PROJECT="../DRIVE.xcodeproj"
+elif [ -f "DRIVE.xcodeproj/project.pbxproj" ]; then
+  # We're in the repository root
+  PROJECT="DRIVE.xcodeproj"
+else
+  echo "Error: Could not find DRIVE.xcodeproj"
+  exit 1
+fi
 
-PROJECT="DRIVE.xcodeproj"
 SCHEME="DRIVE"
 CONFIGURATION="Release"
 SDK="iphoneos"
