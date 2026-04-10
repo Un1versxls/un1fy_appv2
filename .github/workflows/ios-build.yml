@@ -29,8 +29,7 @@ jobs:
     - name: Find Xcode project or workspace
       id: find_project
       run: |
-        # We'll stay in repository root and let the build script find the project
-        # Look for .xcworkspace first (preferred for CocoaPods), then .xcodeproj
+        # We're already in repository root, check DRIVE directory for project
         if ls DRIVE/*.xcworkspace 1> /dev/null 2>&1; then
           PROJECT_PATH=$(ls DRIVE/*.xcworkspace | head -n 1)
           echo "workspace=$PROJECT_PATH" >> $GITHUB_OUTPUT
