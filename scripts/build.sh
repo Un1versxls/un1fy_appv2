@@ -8,9 +8,11 @@ REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$REPO_ROOT/DRIVE"
 
 echo "Working directory: $(pwd)"
-echo "Contents: $(ls -la)"
+echo "Looking for project: $(find . -name '*.xcodeproj' -type d)"
 
-PROJECT="DRIVE.xcodeproj"
+PROJECT=$(find . -name '*.xcodeproj' -type d | head -1)
+echo "Using project: $PROJECT"
+
 SCHEME="DRIVE"
 CONFIGURATION="Release"
 SDK="iphoneos"
@@ -18,14 +20,13 @@ DERIVED_DATA="../build/DerivedData"
 ARCHIVE_PATH="../build/DRIVE.xcarchive"
 EXPORT_PATH="../build/export"
 
-# Create output directories
 mkdir -p "$DERIVED_DATA"
 mkdir -p "$EXPORT_PATH"
 
-# Clean previous builds
-xcodebuild clean -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -derivedDataPath "$DERIVED_DATA"
+echo "=== Cleaning previous builds ==="
+xcodebuild clean -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -derivedDataPath "$DERIVED_DATA" || true
 
-# Build and archive with code signing disabled for CI
+echo "=== Building and archiving ==="
 xcodebuild archive \
   -project "$PROJECT" \
   -scheme "$SCHEME" \
@@ -35,12 +36,8 @@ xcodebuild archive \
   -archivePath "$ARCHIVE_PATH" \
   CODE_SIGNING_ALLOWED=NO \
   CODE_SIGN_IDENTITY="" \
-  PROVISIONING_PROFILE=""
+  PROVISIONING_PROFILE="" \
+  -verbose
 
 echo "Archive created at: $ARCHIVE_PATH"
-
-# Note: To export an IPA for sideloading, you need an ExportOptions.plist. You can create one using Xcode's Export function.
-# Example export command:
-# xcodebuild -exportArchive -archivePath "$ARCHIVE_PATH" -exportOptionsPlist "ExportOptions.plist" -exportPath "$EXPORT_PATH"
-
-echo "Build script finished. Use Xcode to export the archive to an IPA for sideloading."
+echo "Build script finished."
