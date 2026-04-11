@@ -46,6 +46,7 @@
 		A10000012345678900000025 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000003D /* Theme.swift */; };
 		A10000012345678900000026 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000003E /* ViewModifiers.swift */; };
 		A10000012345678900000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000003F /* Assets.xcassets */; };
+		CC0000012345678900000001 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012345678900000002 /* DesignSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		A2000001234567890000003C /* TaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCard.swift; sourceTree = "<group>"; };
 		A2000001234567890000003D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A2000001234567890000003E /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		CC0000012345678900000002 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		A2000001234567890000003F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A30000012345678900000001 /* DRIVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRIVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -187,6 +189,7 @@
 		A50000012345678900000006 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CC0000012345678900000002 /* DesignSystem.swift */,
 				A20000012345678900000038 /* GradientButton.swift */,
 				A20000012345678900000039 /* LoadingScreen.swift */,
 				A2000001234567890000003A /* PlanCard.swift */,
@@ -313,6 +316,7 @@
 				A10000012345678900000024 /* TaskCard.swift in Sources */,
 				A10000012345678900000025 /* Theme.swift in Sources */,
 				A10000012345678900000026 /* ViewModifiers.swift in Sources */,
+				CC0000012345678900000001 /* DesignSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

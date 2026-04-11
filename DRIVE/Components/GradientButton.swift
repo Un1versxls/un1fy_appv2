@@ -33,6 +33,20 @@ public struct GradientButton: View {
         self.isLoading = isLoading
         self.action = action
     }
+
+    /// Convenience initialiser used by Drive views:
+    /// `GradientButton("Label", icon: "sf.symbol", isEnabled: bool) { }`
+    public init(
+        _ title: String,
+        icon: String? = nil,
+        isEnabled: Bool = true,
+        action: @escaping () -> Void
+    ) {
+        self.title = icon.map { "\(title)  \($0)" } ?? title
+        self.style = .primary
+        self.isLoading = false
+        self.action = isEnabled ? action : {}
+    }
     
     public var body: some View {
         Button(action: {
