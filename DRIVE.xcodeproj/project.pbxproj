@@ -30,7 +30,7 @@
 		A10000012345678900000015 /* GoalQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000002B /* GoalQuestionsView.swift */; };
 		A10000012345678900000016 /* NicheSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000002C /* NicheSelectionView.swift */; };
 		A10000012345678900000017 /* OnboardingCompletionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000002D /* OnboardingCompletionView.swift */; };
-		A10000012345678900000018 /* OnboardingFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000030 /* OnboardingFlowView.swift */; };
+		A10000012345678900000018 /* OnboardingFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678900000030 /* OnboardingFlowView.swift */; };
 		A10000012345678900000019 /* PlanSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678900000031 /* PlanSelectionView.swift */; };
 		A1000001234567890000001A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678900000032 /* WelcomeView.swift */; };
 		A1000001234567890000001B /* MainDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678900000033 /* MainDashboardView.swift */; };
@@ -50,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		A20000012345678900000001 /* DRIVEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRIVEApp.swift; sourceTree = "<group>"; };
+		A2000001234567890000002F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20000012345678900000009 /* AppPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPlan.swift; sourceTree = "<group>"; };
 		A2000001234567890000001A /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		A2000001234567890000001B /* DailyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTask.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		A20000012345678900000022 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		A20000012345678900000023 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		A20000012345678900000024 /* UserStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStats.swift; sourceTree = "<group>"; };
+		A2000001234567890000002E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A20000012345678900000025 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		A20000012345678900000026 /* MainDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboardViewModel.swift; sourceTree = "<group>"; };
 		A20000012345678900000027 /* NicheSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicheSelectionViewModel.swift; sourceTree = "<group>"; };
@@ -71,8 +73,6 @@
 		A2000001234567890000002B /* GoalQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalQuestionsView.swift; sourceTree = "<group>"; };
 		A2000001234567890000002C /* NicheSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicheSelectionView.swift; sourceTree = "<group>"; };
 		A2000001234567890000002D /* OnboardingCompletionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCompletionView.swift; sourceTree = "<group>"; };
-		A2000001234567890000002E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		A2000001234567890000002F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A20000012345678900000030 /* OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowView.swift; sourceTree = "<group>"; };
 		A20000012345678900000031 /* PlanSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanSelectionView.swift; sourceTree = "<group>"; };
 		A20000012345678900000032 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -103,24 +103,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A50000012345678900000001 /* DRIVE */ = {
+		A50000012345678900000001 /* root */ = {
 			isa = PBXGroup;
 			children = (
-				A50000012345678900000002 /* Sources */,
-				A50000012345678900000003 /* Models */,
-				A50000012345678900000004 /* ViewModels */,
-				A50000012345678900000005 /* Views */,
-				A50000012345678900000006 /* Components */,
-				A50000012345678900000007 /* Resources */,
+				A50000012345678900000002 /* DRIVE */,
 				A50000012345678900000010 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A50000012345678900000002 /* Sources */ = {
+		A50000012345678900000002 /* DRIVE */ = {
 			isa = PBXGroup;
 			children = (
 				A20000012345678900000001 /* DRIVEApp.swift */,
 				A2000001234567890000002F /* Info.plist */,
+				A2000001234567890000003F /* Assets.xcassets */,
+				A50000012345678900000003 /* Models */,
+				A50000012345678900000004 /* ViewModels */,
+				A50000012345678900000005 /* Views */,
+				A50000012345678900000006 /* Components */,
 			);
 			path = DRIVE;
 			sourceTree = "<group>";
@@ -141,8 +141,7 @@
 				A20000012345678900000023 /* UserSettings.swift */,
 				A20000012345678900000024 /* UserStats.swift */,
 			);
-			name = Models;
-			path = DRIVE/Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A50000012345678900000004 /* ViewModels */ = {
@@ -156,8 +155,7 @@
 				A20000012345678900000029 /* ProfileViewModel.swift */,
 				A2000001234567890000002A /* TaskViewModel.swift */,
 			);
-			name = ViewModels;
-			path = DRIVE/ViewModels;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A50000012345678900000005 /* Views */ = {
@@ -169,14 +167,21 @@
 				A20000012345678900000030 /* OnboardingFlowView.swift */,
 				A20000012345678900000031 /* PlanSelectionView.swift */,
 				A20000012345678900000032 /* WelcomeView.swift */,
+				A50000012345678900000008 /* Dashboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A50000012345678900000008 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
 				A20000012345678900000033 /* MainDashboardView.swift */,
 				A20000012345678900000034 /* ProfileTabView.swift */,
 				A20000012345678900000035 /* ProgressTabView.swift */,
 				A20000012345678900000036 /* TaskDetailSheet.swift */,
 				A20000012345678900000037 /* TasksTabView.swift */,
 			);
-			name = Views;
-			path = DRIVE/Views;
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		A50000012345678900000006 /* Components */ = {
@@ -190,17 +195,7 @@
 				A2000001234567890000003D /* Theme.swift */,
 				A2000001234567890000003E /* ViewModifiers.swift */,
 			);
-			name = Components;
-			path = DRIVE/Components;
-			sourceTree = "<group>";
-		};
-		A50000012345678900000007 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A2000001234567890000003F /* Assets.xcassets */,
-			);
-			name = Resources;
-			path = DRIVE;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A50000012345678900000010 /* Products */ = {
@@ -365,36 +360,26 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_ARGS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_COMMON = YES;
@@ -404,15 +389,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -425,48 +406,35 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_ARGS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_COMMON = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
