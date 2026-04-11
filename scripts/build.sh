@@ -5,7 +5,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 
-cd "$REPO_ROOT/DRIVE"
+cd "$REPO_ROOT"
 
 echo "Working directory: $(pwd)"
 echo "Looking for project: $(find . -name '*.xcodeproj' -type d)"
@@ -16,9 +16,9 @@ echo "Using project: $PROJECT"
 SCHEME="DRIVE"
 CONFIGURATION="Release"
 SDK="iphoneos"
-DERIVED_DATA="../build/DerivedData"
-ARCHIVE_PATH="../build/DRIVE.xcarchive"
-EXPORT_PATH="../build/export"
+DERIVED_DATA="build/DerivedData"
+ARCHIVE_PATH="build/DRIVE.xcarchive"
+EXPORT_PATH="build/export"
 
 mkdir -p "$DERIVED_DATA"
 mkdir -p "$EXPORT_PATH"
@@ -36,8 +36,7 @@ xcodebuild archive \
   -archivePath "$ARCHIVE_PATH" \
   CODE_SIGNING_ALLOWED=NO \
   CODE_SIGN_IDENTITY="" \
-  PROVISIONING_PROFILE="" \
-  -verbose
+  PROVISIONING_PROFILE=""
 
 echo "Archive created at: $ARCHIVE_PATH"
 echo "Build script finished."
