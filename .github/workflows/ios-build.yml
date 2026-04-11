@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}
     
     steps:
     - name: Checkout code
@@ -20,37 +23,26 @@ jobs:
       with:
         xcode-version: latest
         
-    - name: Display Xcode version
-      run: xcodebuild -version
-      
-    - name: List project files
+    - name: Show directory structure
       run: |
-        echo "Current directory: $(pwd)"
+        echo "Workspace: $GITHUB_WORKSPACE"
+        pwd
         ls -la
-      
-    - name: Find Xcode project or workspace
-      id: find_project
-      run: |
-        echo "Checking for xcodeproj in: $(pwd)"
-        ls -la *.xcodeproj 2>/dev/null || echo "No xcodeproj at root"
-        ls -la */.xcodeproj 2>/dev/null || echo "No xcodeproj in subdirs"
+        echo "---"
+        ls -la */
         
-    - name: Build archive
+    - name: Build
       run: |
-        cd /Users/runner/work/un1fy_appv2/un1fy_appv2
+        pwd
+        ls -la
         xcodebuild archive \
-          -project ./DRIVE.xcodeproj \
+          -project "$GITHUB_WORKSPACE/DRIVE.xcodeproj" \
           -scheme DRIVE \
           -configuration Release \
           -sdk iphoneos \
-          -derivedDataPath ./build/DerivedData \
-          -archivePath ./build/DRIVE.xcarchive \
+          -derivedDataPath "$GITHUB_WORKSPACE/build" \
+          -archivePath "$GITHUB_WORKSPACE/build/DRIVE.xcarchive" \
           CODE_SIGNING_ALLOWED=NO
-      
-    - name: Verify archive was created
-      run: |
-        ls -la /Users/runner/work/un1fy_appv2/un1fy_appv2/build/
-        ls -la /Users/runner/work/un1fy_appv2/un1fy_appv2/build/DRIVE.xcarchive/ 2>/dev/null || echo "Archive not found at expected location"
         
     - name: Create ExportOptions.plist
       run: |
@@ -65,21 +57,26 @@ jobs:
             <string>manual</string>
             <key>stripSwiftSymbols</key>
             <true/>
-            <key>teamID</key>
-            <string></string>
         </dict>
         </plist>
         EOF
-          
-    - name: Verify IPA was created
+        
+    - name: Export IPA
       run: |
-        ls -la /Users/runner/work/un1fy_appv2/un1fy_appv2/build/export/
-        ls -la /Users/runner/work/un1fy_appv2/un1fy_appv2/build/export/DRIVE.ipa 2>/dev/null && echo "IPA successfully created!" || echo "IPA not found"
+        xcodebuild -exportArchive \
+          -archivePath "$GITHUB_WORKSPACE/build/DRIVE.xcarchive" \
+          -exportOptionsPlist "ExportOptions.plist" \
+          -exportPath "$GITHUB_WORKSPACE/build"
+        
+    - name: Show build output
+      run: |
+        ls -la "$GITHUB_WORKSPACE/build/"
+        ls -la "$GITHUB_WORKSPACE/build/DRIVE.xcarchive/" || echo "No archive"
         
     - name: Upload IPA
       if: success()
       uses: actions/upload-artifact@v4
       with:
         name: DRIVE-ipa
-        path: /Users/runner/work/un1fy_appv2/un1fy_appv2/build/export/DRIVE.ipa
+        path: ${{ github.workspace }}/build/DRIVE.ipa
         retention-days: 30
