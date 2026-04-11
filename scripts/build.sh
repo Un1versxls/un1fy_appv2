@@ -2,15 +2,13 @@
 
 set -e
 
-echo "=== Current directory: $(pwd) ==="
+echo "=== Starting directory: $(pwd) ==="
 
-# Find the repo root - go up until we find .xcodeproj
-while [ ! -f "DRIVE.xcodeproj/project.pbxproj" ] && [ "$(pwd)" != "/" ]; do
-  echo "Going up from: $(pwd)"
-  cd ..
-done
+# Go up TWO levels to get to repo root (script is in scripts/ folder)
+cd ../..
 
-echo "=== Now at: $(pwd) ==="
+echo "=== Now at repo root: $(pwd) ==="
+echo "=== Contents: ==="
 ls -la
 
 PROJECT="./DRIVE.xcodeproj"
