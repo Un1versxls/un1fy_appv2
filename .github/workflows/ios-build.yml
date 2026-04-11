@@ -49,7 +49,11 @@ jobs:
       run: chmod +x scripts/build.sh
       
     - name: Build archive using custom script
-      run: ./scripts/build.sh
+      run: |
+        cd /Users/runner/work/un1fy_appv2/un1fy_appv2
+        pwd
+        ls -la
+        ./scripts/build.sh
       
     - name: Verify archive was created
       run: |

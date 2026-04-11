@@ -3,11 +3,6 @@
 set -e
 
 echo "=== Starting directory: $(pwd) ==="
-
-# Go up TWO levels to get to repo root (script is in scripts/ folder)
-cd ../..
-
-echo "=== Now at repo root: $(pwd) ==="
 echo "=== Contents: ==="
 ls -la
 
