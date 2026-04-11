@@ -51,8 +51,8 @@ jobs:
       
     - name: Verify archive was created
       run: |
-        ls -la build/
-        ls -la build/DRIVE.xcarchive/ 2>/dev/null || echo "Archive not found at expected location"
+        ls -la DRIVE/build/
+        ls -la DRIVE/build/DRIVE.xcarchive/ 2>/dev/null || echo "Archive not found at expected location"
         
     - name: Create ExportOptions.plist
       run: |
@@ -75,9 +75,8 @@ jobs:
           
     - name: Verify IPA was created
       run: |
-        ls -la build/export/
-        ls -la build/export/DRIVE.ipa 2>/dev/null && echo "IPA successfully created!" || echo "IPA not found"
-      working-directory: DRIVE
+        ls -la DRIVE/build/export/
+        ls -la DRIVE/build/export/DRIVE.ipa 2>/dev/null && echo "IPA successfully created!" || echo "IPA not found"
         
     - name: Upload IPA
       if: success()

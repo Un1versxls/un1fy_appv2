@@ -2,16 +2,13 @@
 
 set -e
 
-# Change to DRIVE directory where the project is located
-cd "$(dirname "$0")/.."
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(dirname "$SCRIPT_DIR")"
 
-# Verify we're now in the repository root
-if [ ! -f "DRIVE.xcodeproj/project.pbxproj" ]; then
-  echo "Error: Could not find DRIVE.xcodeproj in repository root"
-  echo "Current directory: $(pwd)"
-  echo "Contents: $(ls -la)"
-  exit 1
-fi
+cd "$REPO_ROOT/DRIVE"
+
+echo "Working directory: $(pwd)"
+echo "Contents: $(ls -la)"
 
 PROJECT="DRIVE.xcodeproj"
 SCHEME="DRIVE"
