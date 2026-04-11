@@ -2,31 +2,24 @@
 
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(dirname "$SCRIPT_DIR")"
+echo "=== Current working directory: $(pwd) ==="
 
-cd "$REPO_ROOT"
+# Navigate to repo root using absolute path
+cd /Users/runner/work/un1fy_appv2/un1fy_appv2
 
-echo "Working directory: $(pwd)"
-echo "Looking for project: $(find . -name '*.xcodeproj' -type d)"
+echo "=== Now at: $(pwd) ==="
+ls -la
 
-PROJECT=$(find . -name '*.xcodeproj' -type d | head -1)
-echo "Using project: $PROJECT"
-
+PROJECT="./DRIVE.xcodeproj"
 SCHEME="DRIVE"
 CONFIGURATION="Release"
 SDK="iphoneos"
 DERIVED_DATA="build/DerivedData"
 ARCHIVE_PATH="build/DRIVE.xcarchive"
-EXPORT_PATH="build/export"
 
 mkdir -p "$DERIVED_DATA"
-mkdir -p "$EXPORT_PATH"
 
-echo "=== Cleaning previous builds ==="
-xcodebuild clean -project "$PROJECT" -scheme "$SCHEME" -configuration "$CONFIGURATION" -derivedDataPath "$DERIVED_DATA" || true
-
-echo "=== Building and archiving ==="
+echo "=== Building project: $PROJECT ==="
 xcodebuild archive \
   -project "$PROJECT" \
   -scheme "$SCHEME" \
@@ -34,9 +27,4 @@ xcodebuild archive \
   -sdk "$SDK" \
   -derivedDataPath "$DERIVED_DATA" \
   -archivePath "$ARCHIVE_PATH" \
-  CODE_SIGNING_ALLOWED=NO \
-  CODE_SIGN_IDENTITY="" \
-  PROVISIONING_PROFILE=""
-
-echo "Archive created at: $ARCHIVE_PATH"
-echo "Build script finished."
+  CODE_SIGNING_ALLOWED=NO

@@ -24,7 +24,9 @@ jobs:
       run: xcodebuild -version
       
     - name: List project files
-      run: ls -la
+      run: |
+        echo "Current directory: $(pwd)"
+        ls -la
       
     - name: Find Xcode project or workspace
       id: find_project
