@@ -2,10 +2,13 @@
 
 set -e
 
-echo "=== Current working directory: $(pwd) ==="
+echo "=== Current directory: $(pwd) ==="
 
-# Navigate to repo root using absolute path
-cd /Users/runner/work/un1fy_appv2/un1fy_appv2
+# Find the repo root - go up until we find .xcodeproj
+while [ ! -f "DRIVE.xcodeproj/project.pbxproj" ] && [ "$(pwd)" != "/" ]; do
+  echo "Going up from: $(pwd)"
+  cd ..
+done
 
 echo "=== Now at: $(pwd) ==="
 ls -la
