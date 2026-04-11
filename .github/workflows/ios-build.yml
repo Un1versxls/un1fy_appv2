@@ -33,6 +33,7 @@ jobs:
         
     - name: Build
       run: |
+        mkdir -p "$GITHUB_WORKSPACE/build"
         pwd
         ls -la
         xcodebuild archive \
