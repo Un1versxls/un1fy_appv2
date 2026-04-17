@@ -83,7 +83,7 @@ struct FeatureIcon: View {
     
     var body: some View {
         Image(systemName: icon)
-            .font(.system(size: 24, weight: .semibold))
+            .font(.system(size: 24, weight: .semibold)
             .foregroundStyle(color)
             .frame(width: 56, height: 56)
             .background(
