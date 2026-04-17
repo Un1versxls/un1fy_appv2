@@ -173,7 +173,7 @@ struct GradientOutlineButton: View {
                 .frame(height: 52)
                 .overlay(
                     RoundedRectangle(cornerRadius: DriveRadius.md)
-                        .strokeBorder(.drivePrimary, lineWidth: 1.5)
+                        .strokeBorder(Color.drivePrimary, lineWidth: 1.5)
                 )
         }
     }

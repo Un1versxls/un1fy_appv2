@@ -253,8 +253,7 @@ struct TaskDetailSheet: View {
         VStack(spacing: DriveSpacing.base) {
             GradientButton(
                 "Complete Task",
-                icon: "checkmark",
-                gradient: .driveSuccess
+                style: .primary
             ) {
                 onComplete(selectedTask)
                 dismiss()

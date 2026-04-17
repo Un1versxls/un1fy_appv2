@@ -141,7 +141,7 @@ struct TaskCardView: View {
                         }
                     }
                     
-                    Text(task.description)
+                    Text(task.description ?? "")
                         .font(.driveSubheadline)
                         .foregroundColor(.driveTextSecondary)
                         .lineLimit(2)
@@ -219,7 +219,7 @@ struct TaskCardView: View {
         .padding(.vertical, DriveSpacing.xxs)
         .background(
             Capsule()
-                .fill(.driveSuccess.opacity(0.15))
+                .fill(Color.driveSuccess.opacity(0.15))
         )
     }
     
@@ -235,7 +235,7 @@ struct TaskCardView: View {
         .padding(.vertical, DriveSpacing.xxs)
         .background(
             Capsule()
-                .fill(.driveWarning.opacity(0.15))
+                .fill(Color.driveWarning.opacity(0.15))
         )
     }
     
