@@ -108,12 +108,30 @@ extension LinearGradient {
         endPoint: .bottomTrailing
     )
 
+    /// Vibrant gradient for text.
+    static let driveVibrant = LinearGradient(
+        colors: [Color.drivePrimary, Color.driveCyan],
+        startPoint: .leading,
+        endPoint: .trailing
+    )
+
     /// A fully-transparent gradient used as a no-op fill.
     static let clear = LinearGradient(
         colors: [Color.clear, Color.clear],
         startPoint: .top,
         endPoint: .bottom
     )
+}
+
+// MARK: - Onboarding Steps
+enum OnboardingStep: CaseIterable {
+    case welcome
+    case goalQuestion1
+    case goalQuestion2
+    case goalQuestion3
+    case goalQuestion4
+    case planSelection
+    case completion
 }
 
 // MARK: - ShapeStyle Convenience
@@ -123,6 +141,8 @@ extension ShapeStyle where Self == Color {
     static var drivePrimary: Color { .drivePrimary }
     static var drivePurple:  Color { .drivePurple  }
     static var drivePink:    Color { .drivePink    }
+    static var driveWarning: Color { .driveWarning }
+    static var driveSuccess: Color { .driveSuccess }
 }
 
 // MARK: - Font Extensions
@@ -225,7 +245,9 @@ struct GradientOutlineButton: View {
     }
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             Text(title)
                 .font(.driveHeadline)
                 .foregroundColor(.drivePrimary)

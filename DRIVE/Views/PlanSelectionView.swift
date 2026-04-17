@@ -166,7 +166,7 @@ struct PlanSelectionCard: View {
             .overlay(
                 RoundedRectangle(cornerRadius: DriveRadius.xl)
                     .strokeBorder(
-                        isSelected ? LinearGradient.drivePrimary : Color.driveGlassBorder,
+                        isSelected ? LinearGradient.drivePrimary : LinearGradient(colors: [Color.driveGlassBorder, Color.driveGlassBorder]),
                         lineWidth: isSelected ? 2 : 1
                     )
             )
