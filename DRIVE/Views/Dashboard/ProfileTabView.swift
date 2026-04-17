@@ -75,7 +75,7 @@ struct ProfileTabView: View {
                     } label: {
                         Image(systemName: "pencil")
                             .font(.system(size: 14))
-                            .foregroundColor(.drivePurple)
+                            .foregroundColor(Color.drivePurple)
                     }
                 }
                 
@@ -180,7 +180,7 @@ struct ProfileTabView: View {
                 NavigationLink(destination: NicheSelectionView()) {
                     Text("Change")
                         .font(.driveCaption)
-                        .foregroundColor(.drivePurple)
+                        .foregroundColor(Color.drivePurple)
                 }
             }
             
@@ -256,7 +256,7 @@ struct ProfileTabView: View {
         HStack {
             Image(systemName: icon)
                 .font(.system(size: 16))
-                .foregroundColor(.drivePurple)
+                .foregroundColor(Color.drivePurple)
                 .frame(width: 24)
             
             Text(title)

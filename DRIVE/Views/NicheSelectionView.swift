@@ -78,7 +78,7 @@ struct NicheSelectionView: View {
                     viewModel.clearAll()
                 }
                 .font(.driveCallout)
-                .foregroundColor(.drivePurple)
+                .foregroundColor(Color.drivePurple)
             }
         }
         .padding(.horizontal, DriveSpacing.base)

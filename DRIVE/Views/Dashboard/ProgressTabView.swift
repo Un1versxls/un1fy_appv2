@@ -163,7 +163,7 @@ struct ProgressTabView: View {
                             
                             Text(stats.levelTitle)
                                 .font(.driveCaption)
-                                .foregroundColor(.drivePurple)
+                                .foregroundColor(Color.drivePurple)
                                 .padding(.horizontal, DriveSpacing.sm)
                                 .padding(.vertical, DriveSpacing.xxs)
                                 .background(
@@ -181,7 +181,7 @@ struct ProgressTabView: View {
                     
                     Image(systemName: "arrow.up.circle.fill")
                         .font(.system(size: 32))
-                        .foregroundColor(.drivePurple)
+                        .foregroundColor(Color.drivePurple)
                 }
                 
                 GeometryReader { geometry in
@@ -281,7 +281,7 @@ struct BadgeView: View {
                 
                 Image(systemName: badge.icon)
                     .font(.system(size: 24))
-                    .foregroundColor(.drivePurple)
+                    .foregroundColor(Color.drivePurple)
             }
             
             Text(badge.name)

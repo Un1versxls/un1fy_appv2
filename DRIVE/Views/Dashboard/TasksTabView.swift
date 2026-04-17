@@ -214,7 +214,7 @@ struct TaskCardView: View {
             Text("Done")
                 .font(.driveCaption)
         }
-        .foregroundColor(.driveSuccess)
+        .foregroundColor(Color.driveSuccess)
         .padding(.horizontal, DriveSpacing.sm)
         .padding(.vertical, DriveSpacing.xxs)
         .background(
@@ -230,7 +230,7 @@ struct TaskCardView: View {
             Text(task.pointsLabel)
                 .font(.driveCaption)
         }
-        .foregroundColor(.driveWarning)
+        .foregroundColor(Color.driveWarning)
         .padding(.horizontal, DriveSpacing.sm)
         .padding(.vertical, DriveSpacing.xxs)
         .background(

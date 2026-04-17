@@ -122,7 +122,7 @@ struct TaskDetailSheet: View {
             HStack(spacing: DriveSpacing.xl) {
                 infoChip(icon: "star.fill", value: selectedTask.pointsLabel, color: Color.driveWarning)
                 infoChip(icon: "clock", value: selectedTask.timeLabel, color: Color.driveCyan)
-                infoChip(icon: "folder.fill", value: selectedTask.niche, color: .drivePurple)
+                infoChip(icon: "folder.fill", value: selectedTask.niche, color: Color.drivePurple)
             }
         }
         .padding(DriveSpacing.base)
