@@ -35,7 +35,7 @@ struct MainDashboardView: View {
                 }
                 .tag(2)
         }
-        .tint(.drivePurple)
+        .tint(Color.drivePurple)
         .sheet(isPresented: $showTaskDetail) {
             if let task = selectedTask {
                 TaskDetailSheet(task: task) { completedTask in
