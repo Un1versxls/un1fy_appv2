@@ -10,32 +10,24 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+    
     - name: Set up Xcode
       uses: maxim-lobanov/setup-xcode@v1
       with:
         xcode-version: latest
-        
+    
     - name: Show directory structure
       run: |
         echo "Workspace: $GITHUB_WORKSPACE"
         pwd
         ls -la
-        echo "---"
-        ls -la */
-        
+    
     - name: Build
       run: |
-        mkdir -p "$GITHUB_WORKSPACE/build"
-        pwd
-        ls -la
         xcodebuild archive \
           -project "$GITHUB_WORKSPACE/DRIVE.xcodeproj" \
           -scheme DRIVE \
@@ -44,16 +36,16 @@ jobs:
           -derivedDataPath "$GITHUB_WORKSPACE/build" \
           -archivePath "$GITHUB_WORKSPACE/build/DRIVE.xcarchive" \
           CODE_SIGNING_ALLOWED=NO
-        
+    
     - name: Create ExportOptions.plist
       run: |
-        cat > ExportOptions.plist << 'EOF'
+        cat > "$GITHUB_WORKSPACE/ExportOptions.plist" << 'EOF'
         <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
         <plist version="1.0">
         <dict>
             <key>method</key>
-            <string>development</string>
+            <string>ad-hoc</string>
             <key>signingStyle</key>
             <string>manual</string>
             <key>stripSwiftSymbols</key>
@@ -61,19 +53,19 @@ jobs:
         </dict>
         </plist>
         EOF
-        
+    
     - name: Export IPA
       run: |
         xcodebuild -exportArchive \
           -archivePath "$GITHUB_WORKSPACE/build/DRIVE.xcarchive" \
-          -exportOptionsPlist "ExportOptions.plist" \
+          -exportOptionsPlist "$GITHUB_WORKSPACE/ExportOptions.plist" \
           -exportPath "$GITHUB_WORKSPACE/build"
-        
+    
     - name: Show build output
       run: |
         ls -la "$GITHUB_WORKSPACE/build/"
-        ls -la "$GITHUB_WORKSPACE/build/DRIVE.xcarchive/" || echo "No archive"
-        
+        find "$GITHUB_WORKSPACE/build/" -name "*.ipa" -type f
+    
     - name: Upload IPA
       if: success()
       uses: actions/upload-artifact@v4
