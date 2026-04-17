@@ -25,8 +25,8 @@ struct OnboardingCompletionView: View {
                     
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 60, weight: .bold))
-                        .foregroundStyle(.driveSuccess)
-                        .glow(color: .driveSuccess, radius: 25, intensity: animateIn ? 0.6 : 0.3)
+                        .foregroundStyle(Color.driveSuccess)
+                        .glow(color: Color.driveSuccess, radius: 25, intensity: animateIn ? 0.6 : 0.3)
                 }
                 .scaleEffect(animateIn ? 1.0 : 0.5)
                 
