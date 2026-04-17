@@ -139,7 +139,7 @@ struct PlanSelectionCard: View {
                     VStack(alignment: .trailing, spacing: DriveSpacing.xxs) {
                         Text(plan.priceString)
                             .font(.driveTitle3)
-                            .foregroundStyle(isSelected ? .drivePrimary : .white)
+                            .foregroundStyle(isSelected ? Color.drivePrimary : .white)
                     }
                 }
                 

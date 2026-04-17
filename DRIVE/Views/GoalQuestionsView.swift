@@ -136,7 +136,7 @@ struct OptionButton: View {
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 20))
-                        .foregroundStyle(.drivePrimary)
+                        .foregroundStyle(Color.drivePrimary)
                         .transition(.scale.combined(with: .opacity))
                 }
             }

@@ -116,7 +116,7 @@ struct SummaryItem: View {
         HStack(spacing: DriveSpacing.md) {
             Image(systemName: icon)
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.drivePrimary)
+                .foregroundStyle(Color.drivePrimary)
                 .frame(width: 32, height: 32)
                 .background(
                     Circle()
