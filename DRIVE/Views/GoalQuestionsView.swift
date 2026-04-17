@@ -102,7 +102,7 @@ struct ProgressDots: View {
         HStack(spacing: DriveSpacing.sm) {
             ForEach(1...total, id: \.self) { index in
                 Circle()
-                    .fill(index <= current ? LinearGradient.drivePrimary : Color.driveSurfaceElevated)
+                    .fill(index <= current ? LinearGradient.drivePrimary : LinearGradient.clear)
                     .frame(width: 8, height: 8)
                     .overlay(
                         Circle()
@@ -144,7 +144,7 @@ struct OptionButton: View {
             .padding(.vertical, DriveSpacing.lg)
             .background(
                 RoundedRectangle(cornerRadius: DriveRadius.lg)
-                    .fill(isSelected ? LinearGradient.drivePrimary : Color.driveGlassBackground)
+                    .fill(isSelected ? LinearGradient.drivePrimary : LinearGradient.clear)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: DriveRadius.lg)
