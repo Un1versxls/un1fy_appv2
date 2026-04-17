@@ -21,18 +21,19 @@ struct WelcomeView: View {
                     Image(systemName: "bolt.fill")
                         .font(.system(size: 50, weight: .bold))
                         .foregroundStyle(.white)
-.glow(color: Color.drivePurple, radius: 20, intensity: animateIcons ? 0.7 : 0.4)
+                        .glow(color: Color.drivePurple, radius: 20, intensity: animateIcons ? 0.7 : 0.4)
                         .scaleEffect(animateIcons ? 1.05 : 1.0)
-                        
-                        VStack(spacing: DriveSpacing.md) {
-                            Text("Welcome to")
-                                .font(.driveTitle3)
-                                .foregroundStyle(Color.driveTextSecondary)
-                            
-                            Text("DRIVE")
-                                .font(.driveLargeTitle)
-                                .gradientText(.driveVibrant)
-                                .glow(color: Color.drivePurple, radius: 15, intensity: 0.5)
+                }
+                
+                VStack(spacing: DriveSpacing.md) {
+                    Text("Welcome to")
+                        .font(.driveTitle3)
+                        .foregroundStyle(Color.driveTextSecondary)
+                    
+                    Text("DRIVE")
+                        .font(.driveLargeTitle)
+                        .gradientText(.driveVibrant)
+                        .glow(color: Color.drivePurple, radius: 15, intensity: 0.5)
                 }
                 .opacity(showContent ? 1 : 0)
                 .offset(y: showContent ? 0 : 20)
@@ -83,7 +84,7 @@ struct FeatureIcon: View {
     
     var body: some View {
         Image(systemName: icon)
-            .font(.system(size: 24, weight: .semibold)
+            .font(.system(size: 24, weight: .semibold))
             .foregroundStyle(color)
             .frame(width: 56, height: 56)
             .background(
