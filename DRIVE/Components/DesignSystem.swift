@@ -11,7 +11,8 @@ enum DriveSpacing {
     static let xl: CGFloat   = 24
     static let xxl: CGFloat  = 32
     static let xxxl: CGFloat = 48
-    static let none: CGFloat = 0
+    static let huge: CGFloat  = 64
+    static let none: CGFloat  = 0
 }
 
 // MARK: - Corner Radius Constants
@@ -30,6 +31,7 @@ enum DriveAnimations {
     static let standard = Animation.easeInOut(duration: 0.3)
     static let slow     = Animation.easeInOut(duration: 0.5)
     static let bounce   = Animation.interpolatingSpring(stiffness: 300, damping: 15)
+    static let pulse    = Animation.easeInOut(duration: 1.2).repeatForever(autoreverses: true)
 }
 
 // MARK: - Color Extensions
@@ -49,11 +51,15 @@ extension Color {
     static let driveError          = Color(red: 0.91, green: 0.26, blue: 0.22)
     static let driveInfo           = Color(red: 0.0,  green: 0.48, blue: 1.0)
 
+    // Pink accent
+    static let drivePink           = Color(red: 0.96, green: 0.36, blue: 0.58)
+
     // Backgrounds
-    static let driveBackground     = Color(UIColor.systemBackground)
-    static let driveSurface        = Color(UIColor.secondarySystemBackground)
+    static let driveBackground      = Color(UIColor.systemBackground)
+    static let driveSurface         = Color(UIColor.secondarySystemBackground)
     static let driveSurfaceElevated = Color(UIColor.tertiarySystemBackground)
-    static let driveGlassBorder    = Color.white.opacity(0.12)
+    static let driveGlassBorder     = Color.white.opacity(0.12)
+    static let driveGlassBackground = Color.white.opacity(0.08)
 
     // Text
     static let driveTextPrimary    = Color(UIColor.label)
@@ -84,6 +90,39 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+}
+
+// MARK: - LinearGradient Extensions
+extension LinearGradient {
+    /// Purple → blue gradient used throughout the Drive design.
+    static let drivePrimary = LinearGradient(
+        colors: [Color.drivePrimary, Color.drivePurple],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// Soft glow gradient (used as background bloom).
+    static let driveGlow = LinearGradient(
+        colors: [Color.drivePurple.opacity(0.6), Color.driveBlue.opacity(0.3)],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
+    /// A fully-transparent gradient used as a no-op fill.
+    static let clear = LinearGradient(
+        colors: [Color.clear, Color.clear],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+}
+
+// MARK: - ShapeStyle Convenience
+// Provide `.drivePrimary` and `.drivePurple` as ShapeStyle shortcuts so views
+// can write `.fill(.drivePrimary)` without specifying `Color.` or `LinearGradient.`.
+extension ShapeStyle where Self == Color {
+    static var drivePrimary: Color { .drivePrimary }
+    static var drivePurple:  Color { .drivePurple  }
+    static var drivePink:    Color { .drivePink    }
 }
 
 // MARK: - Font Extensions
@@ -132,6 +171,27 @@ extension View {
             borderOpacity: borderOpacity,
             cornerRadius: cornerRadius
         ))
+    }
+}
+
+// MARK: - GradientText Modifier
+/// Overlays a gradient as the foreground colour of any view (typically `Text`).
+struct GradientTextModifier: ViewModifier {
+    let gradient: LinearGradient
+
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                gradient
+                    .mask(content)
+            )
+    }
+}
+
+extension View {
+    /// Apply a `LinearGradient` as the text/foreground fill.
+    func gradientText(_ gradient: LinearGradient) -> some View {
+        modifier(GradientTextModifier(gradient: gradient))
     }
 }
 
