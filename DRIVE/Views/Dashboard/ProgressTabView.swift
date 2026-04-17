@@ -168,7 +168,7 @@ struct ProgressTabView: View {
                                 .padding(.vertical, DriveSpacing.xxs)
                                 .background(
                                     Capsule()
-                                        .fill(.drivePurple.opacity(0.15))
+                                        .fill(Color.drivePurple.opacity(0.15))
                                 )
                         }
                         
@@ -276,7 +276,7 @@ struct BadgeView: View {
         VStack(spacing: DriveSpacing.xs) {
             ZStack {
                 Circle()
-                    .fill(.drivePrimary.opacity(0.15))
+                    .fill(Color.drivePrimary.opacity(0.15))
                     .frame(width: 56, height: 56)
                 
                 Image(systemName: badge.icon)

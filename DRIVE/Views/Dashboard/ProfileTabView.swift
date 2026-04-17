@@ -54,7 +54,7 @@ struct ProfileTabView: View {
         VStack(spacing: DriveSpacing.base) {
             ZStack {
                 Circle()
-                    .fill(.drivePrimary)
+                    .fill(Color.drivePrimary)
                     .frame(width: 80, height: 80)
                 
                 Text(profile.displayName.prefix(1).uppercased())
