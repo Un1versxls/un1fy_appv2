@@ -14,7 +14,7 @@ struct OnboardingFlowView: View {
             
             GeometryReader { geometry in
                 ZStack {
-                    ForEach(OnboardingStep.allCases, id: \.rawValue) { step in
+                    ForEach(Array(OnboardingStep.allCases), id: \.rawValue) { step in
                         if viewModel.shouldShow(step: step) {
                             screenFor(step: step)
                                 .transition(.asymmetric(

@@ -18,7 +18,7 @@ struct OnboardingCompletionView: View {
                     }
                     
                     Circle()
-                        .fill(LinearGradient.driveSuccess)
+                        .fill(LinearGradient.drivePrimary)
                         .frame(width: 100, height: 100)
                         .blur(radius: 30)
                         .opacity(animateIn ? 0.6 : 0)
@@ -95,7 +95,7 @@ struct OnboardingCompletionView: View {
                 animateIn = true
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                withAnimation(DriveAnimations.bouncy) {
+                withAnimation(DriveAnimations.bounce) {
                     showConfetti = true
                 }
             }

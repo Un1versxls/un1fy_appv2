@@ -9,8 +9,8 @@ class NicheSelectionViewModel: ObservableObject {
     @Published var isLoading = false
     
     // MARK: - Constants
-    private let maxSelections = 3
-    private let minSelections = 1
+    let maxSelections = 3
+    let minSelections = 1
     
     // MARK: - Dependencies
     private let appState: AppState

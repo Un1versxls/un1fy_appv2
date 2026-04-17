@@ -115,6 +115,13 @@ extension LinearGradient {
         endPoint: .trailing
     )
 
+    /// Success green gradient.
+    static let driveSuccess = LinearGradient(
+        colors: [Color.driveSuccess, Color.driveCyan],
+        startPoint: .topLeading,
+        endPoint: .bottomTrailing
+    )
+
     /// A fully-transparent gradient used as a no-op fill.
     static let clear = LinearGradient(
         colors: [Color.clear, Color.clear],
