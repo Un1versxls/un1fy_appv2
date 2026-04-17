@@ -158,7 +158,7 @@ struct OptionButton: View {
                     )
             )
             .glow(
-                color: .drivePurple,
+                color: Color.drivePurple,
                 radius: isHovering || isSelected ? 15 : 0,
                 intensity: isSelected ? 0.4 : 0.2
             )

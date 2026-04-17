@@ -150,9 +150,9 @@ struct PlanSelectionCard: View {
                     FeatureTag(text: plan.taskLimitText, icon: "checkmark")
                     
                     if plan.tier == .pro {
-                        FeatureTag(text: "2x Points", icon: "star.fill", color: .drivePink)
+                        FeatureTag(text: "2x Points", icon: "star.fill", color: Color.drivePink)
                     } else if plan.tier == .elite {
-                        FeatureTag(text: "5x Points", icon: "star.fill", color: .drivePink)
+                        FeatureTag(text: "5x Points", icon: "star.fill", color: Color.drivePink)
                     }
                     
                     Spacer()
@@ -180,7 +180,7 @@ struct PlanSelectionCard: View {
                     .opacity(isHovering ? 0.1 : 0)
             )
             .glow(
-                color: .drivePurple,
+                color: Color.drivePurple,
                 radius: isSelected ? 20 : 0,
                 intensity: isSelected ? 0.3 : 0
             )

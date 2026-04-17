@@ -105,7 +105,7 @@ struct TaskDetailSheet: View {
                     .font(.system(size: 32, weight: .semibold))
                     .foregroundColor(.white)
             }
-            .glow(color: .drivePurple, radius: 15, intensity: 0.4)
+            .glow(color: Color.drivePurple, radius: 15, intensity: 0.4)
             
             VStack(spacing: DriveSpacing.sm) {
                 Text(selectedTask.title)
@@ -120,8 +120,8 @@ struct TaskDetailSheet: View {
             }
             
             HStack(spacing: DriveSpacing.xl) {
-                infoChip(icon: "star.fill", value: selectedTask.pointsLabel, color: .driveWarning)
-                infoChip(icon: "clock", value: selectedTask.timeLabel, color: .driveCyan)
+                infoChip(icon: "star.fill", value: selectedTask.pointsLabel, color: Color.driveWarning)
+                infoChip(icon: "clock", value: selectedTask.timeLabel, color: Color.driveCyan)
                 infoChip(icon: "folder.fill", value: selectedTask.niche, color: .drivePurple)
             }
         }

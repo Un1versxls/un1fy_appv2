@@ -21,19 +21,18 @@ struct WelcomeView: View {
                     Image(systemName: "bolt.fill")
                         .font(.system(size: 50, weight: .bold))
                         .foregroundStyle(.white)
-                        .glow(color: .drivePurple, radius: 20, intensity: animateIcons ? 0.7 : 0.4)
-                }
-                .scaleEffect(animateIcons ? 1.05 : 1.0)
-                
-                VStack(spacing: DriveSpacing.md) {
-                    Text("Welcome to")
-                        .font(.driveTitle3)
-                        .foregroundStyle(Color.driveTextSecondary)
-                    
-                    Text("DRIVE")
-                        .font(.driveLargeTitle)
-                        .gradientText(.driveVibrant)
-                        .glow(color: .drivePurple, radius: 15, intensity: 0.5)
+.glow(color: Color.drivePurple, radius: 20, intensity: animateIcons ? 0.7 : 0.4)
+                        .scaleEffect(animateIcons ? 1.05 : 1.0)
+                        
+                        VStack(spacing: DriveSpacing.md) {
+                            Text("Welcome to")
+                                .font(.driveTitle3)
+                                .foregroundStyle(Color.driveTextSecondary)
+                            
+                            Text("DRIVE")
+                                .font(.driveLargeTitle)
+                                .gradientText(.driveVibrant)
+                                .glow(color: Color.drivePurple, radius: 15, intensity: 0.5)
                 }
                 .opacity(showContent ? 1 : 0)
                 .offset(y: showContent ? 0 : 20)
@@ -51,9 +50,9 @@ struct WelcomeView: View {
             
             VStack(spacing: DriveSpacing.lg) {
                 HStack(spacing: DriveSpacing.md) {
-                    FeatureIcon(icon: "star.fill", color: .drivePink, delay: 0.1)
-                    FeatureIcon(icon: "bolt.fill", color: .drivePurple, delay: 0.2)
-                    FeatureIcon(icon: "crown.fill", color: .driveCyan, delay: 0.3)
+                    FeatureIcon(icon: "star.fill", color: Color.drivePink, delay: 0.1)
+                    FeatureIcon(icon: "bolt.fill", color: Color.drivePurple, delay: 0.2)
+                    FeatureIcon(icon: "crown.fill", color: Color.driveCyan, delay: 0.3)
                 }
                 .opacity(showContent ? 1 : 0)
                 .scaleEffect(showContent ? 1 : 0.8)

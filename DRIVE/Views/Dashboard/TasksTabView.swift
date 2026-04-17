@@ -82,21 +82,21 @@ struct TasksTabView: View {
                 title: "To Do",
                 value: "\(appState.pendingTasks.count)",
                 icon: "clock.fill",
-                color: .driveWarning
+                color: Color.driveWarning
             )
             
             StatCard(
                 title: "Done",
                 value: "\(appState.completedTasks.count)",
                 icon: "checkmark.circle.fill",
-                color: .driveSuccess
+                color: Color.driveSuccess
             )
             
             StatCard(
                 title: "Points",
                 value: "\(appState.currentUser.stats.totalPoints)",
                 icon: "star.fill",
-                color: .drivePurple
+                color: Color.drivePurple
             )
         }
         .padding(.horizontal, DriveSpacing.base)
@@ -130,7 +130,7 @@ struct TaskCardView: View {
                         Text(task.title)
                             .font(.driveHeadline)
                             .foregroundColor(task.status == .completed ? .driveTextTertiary : .driveTextPrimary)
-                            .strikethrough(task.status == .completed, color: .driveTextTertiary)
+                            .strikethrough(task.status == .completed, color: Color.driveTextTertiary)
                         
                         Spacer()
                         

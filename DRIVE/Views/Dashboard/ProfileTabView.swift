@@ -61,7 +61,7 @@ struct ProfileTabView: View {
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(.white)
             }
-            .glow(color: .drivePurple, radius: 10, intensity: 0.3)
+            .glow(color: Color.drivePurple, radius: 10, intensity: 0.3)
             
             VStack(spacing: DriveSpacing.xxs) {
                 HStack {
@@ -137,9 +137,9 @@ struct ProfileTabView: View {
     
     private var statsOverview: some View {
         HStack(spacing: DriveSpacing.base) {
-            statItem(value: "\(profile.stats.totalPoints)", label: "Points", icon: "star.fill", color: .driveWarning)
-            statItem(value: "\(profile.stats.totalTasksCompleted)", label: "Tasks", icon: "checkmark.circle.fill", color: .driveSuccess)
-            statItem(value: "\(profile.stats.currentStreak)", label: "Streak", icon: "flame.fill", color: .driveError)
+            statItem(value: "\(profile.stats.totalPoints)", label: "Points", icon: "star.fill", color: Color.driveWarning)
+            statItem(value: "\(profile.stats.totalTasksCompleted)", label: "Tasks", icon: "checkmark.circle.fill", color: Color.driveSuccess)
+            statItem(value: "\(profile.stats.currentStreak)", label: "Streak", icon: "flame.fill", color: Color.driveError)
         }
     }
     
