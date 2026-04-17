@@ -26,6 +26,13 @@ jobs:
         pwd
         ls -la
     
+    - name: Update xcodeproj
+      run: |
+        rm -rf build/
+        if [ -f "$GITHUB_WORKSPACE/update_pbxproj.py" ]; then
+          python3 "$GITHUB_WORKSPACE/update_pbxproj.py" || echo "Update script not found or failed, continuing..."
+        fi
+    
     - name: Build
       run: |
         xcodebuild archive \
