@@ -113,7 +113,7 @@ struct TaskDetailSheet: View {
                     .foregroundColor(.driveTextPrimary)
                     .multilineTextAlignment(.center)
                 
-                Text(selectedTask.description)
+                Text(selectedTask.description ?? "")
                     .font(.driveSubheadline)
                     .foregroundColor(.driveTextSecondary)
                     .multilineTextAlignment(.center)
@@ -167,7 +167,7 @@ struct TaskDetailSheet: View {
             Text(formatTime(timerSeconds))
                 .font(.system(size: 48, weight: .bold, design: .monospaced))
                 .foregroundColor(.driveTextPrimary)
-                .gradientText(isTimerRunning ? .drivePrimary : LinearGradient(colors: [.driveTextSecondary, .driveTextTertiary], startPoint: .leading, endPoint: .trailing))
+                .gradientText(isTimerRunning ? LinearGradient.drivePrimary : LinearGradient(colors: [.driveTextSecondary, .driveTextTertiary], startPoint: .leading, endPoint: .trailing))
             
             HStack(spacing: DriveSpacing.base) {
                 if !isTimerRunning {
@@ -252,9 +252,8 @@ struct TaskDetailSheet: View {
     private var actionButtons: some View {
         VStack(spacing: DriveSpacing.base) {
             GradientButton(
-                "Complete Task",
-                icon: "checkmark",
-                gradient: .driveSuccess
+                title: "Complete Task",
+                style: .primary
             ) {
                 onComplete(selectedTask)
                 dismiss()
