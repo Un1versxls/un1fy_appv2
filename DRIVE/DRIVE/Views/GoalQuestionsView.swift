@@ -136,7 +136,7 @@ struct OptionButton: View {
                 if isSelected {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 20))
-                        .foregroundStyle(.drivePrimary)
+                        .foregroundStyle(Color.drivePrimary)
                         .transition(.scale.combined(with: .opacity))
                 }
             }
@@ -158,7 +158,7 @@ struct OptionButton: View {
                     )
             )
             .glow(
-                color: .drivePurple,
+                color: Color.drivePurple,
                 radius: isHovering || isSelected ? 15 : 0,
                 intensity: isSelected ? 0.4 : 0.2
             )

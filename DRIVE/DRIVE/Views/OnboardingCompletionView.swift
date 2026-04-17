@@ -25,8 +25,8 @@ struct OnboardingCompletionView: View {
                     
                     Image(systemName: "checkmark.circle.fill")
                         .font(.system(size: 60, weight: .bold))
-                        .foregroundStyle(.driveSuccess)
-                        .glow(color: .driveSuccess, radius: 25, intensity: animateIn ? 0.6 : 0.3)
+                        .foregroundStyle(Color.driveSuccess)
+                        .glow(color: Color.driveSuccess, radius: 25, intensity: animateIn ? 0.6 : 0.3)
                 }
                 .scaleEffect(animateIn ? 1.0 : 0.5)
                 
@@ -34,7 +34,7 @@ struct OnboardingCompletionView: View {
                     Text("You're All Set!")
                         .font(.driveTitle1)
                         .foregroundStyle(Color.driveTextPrimary)
-                        .gradientText(.drivePrimary)
+                        .gradientText(Color.drivePrimary)
                     
                     Text("Your plan has been activated")
                         .font(.driveBody)
@@ -116,7 +116,7 @@ struct SummaryItem: View {
         HStack(spacing: DriveSpacing.md) {
             Image(systemName: icon)
                 .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.drivePrimary)
+                .foregroundStyle(Color.drivePrimary)
                 .frame(width: 32, height: 32)
                 .background(
                     Circle()
