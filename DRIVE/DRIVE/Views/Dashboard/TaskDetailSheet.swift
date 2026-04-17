@@ -94,7 +94,7 @@ struct TaskDetailSheet: View {
                 Circle()
                     .fill(
                         LinearGradient(
-                            colors: [.drivePurple, .driveBlue],
+                            colors: [Color.drivePurple, Color.driveBlue],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
@@ -105,7 +105,7 @@ struct TaskDetailSheet: View {
                     .font(.system(size: 32, weight: .semibold))
                     .foregroundColor(.white)
             }
-            .glow(color: .drivePurple, radius: 15, intensity: 0.4)
+            .glow(color: Color.drivePurple, radius: 15, intensity: 0.4)
             
             VStack(spacing: DriveSpacing.sm) {
                 Text(selectedTask.title)
@@ -120,9 +120,9 @@ struct TaskDetailSheet: View {
             }
             
             HStack(spacing: DriveSpacing.xl) {
-                infoChip(icon: "star.fill", value: selectedTask.pointsLabel, color: .driveWarning)
-                infoChip(icon: "clock", value: selectedTask.timeLabel, color: .driveCyan)
-                infoChip(icon: "folder.fill", value: selectedTask.niche, color: .drivePurple)
+                infoChip(icon: "star.fill", value: selectedTask.pointsLabel, color: Color.driveWarning)
+                infoChip(icon: "clock", value: selectedTask.timeLabel, color: Color.driveCyan)
+                infoChip(icon: "folder.fill", value: selectedTask.niche, color: Color.drivePurple)
             }
         }
         .padding(DriveSpacing.base)
@@ -166,8 +166,8 @@ struct TaskDetailSheet: View {
         VStack(spacing: DriveSpacing.md) {
             Text(formatTime(timerSeconds))
                 .font(.system(size: 48, weight: .bold, design: .monospaced))
-                .foregroundColor(.driveTextPrimary)
-                .gradientText(isTimerRunning ? LinearGradient.drivePrimary : LinearGradient(colors: [.driveTextSecondary, .driveTextTertiary], startPoint: .leading, endPoint: .trailing))
+                .foregroundColor(Color.driveTextPrimary)
+                .gradientText(isTimerRunning ? LinearGradient.drivePrimary : LinearGradient(colors: [Color.driveTextSecondary, Color.driveTextTertiary], startPoint: .leading, endPoint: .trailing))
             
             HStack(spacing: DriveSpacing.base) {
                 if !isTimerRunning {

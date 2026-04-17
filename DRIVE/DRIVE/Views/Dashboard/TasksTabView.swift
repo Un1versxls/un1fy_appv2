@@ -82,21 +82,21 @@ struct TasksTabView: View {
                 title: "To Do",
                 value: "\(appState.pendingTasks.count)",
                 icon: "clock.fill",
-                color: .driveWarning
+                color: Color.driveWarning
             )
             
             StatCard(
                 title: "Done",
                 value: "\(appState.completedTasks.count)",
                 icon: "checkmark.circle.fill",
-                color: .driveSuccess
+                color: Color.driveSuccess
             )
             
             StatCard(
                 title: "Points",
                 value: "\(appState.currentUser.stats.totalPoints)",
                 icon: "star.fill",
-                color: .drivePurple
+                color: Color.drivePurple
             )
         }
         .padding(.horizontal, DriveSpacing.base)
@@ -129,8 +129,8 @@ struct TaskCardView: View {
                     HStack {
                         Text(task.title)
                             .font(.driveHeadline)
-                            .foregroundColor(task.status == .completed ? .driveTextTertiary : .driveTextPrimary)
-                            .strikethrough(task.status == .completed, color: .driveTextTertiary)
+                            .foregroundColor(task.status == .completed ? Color.driveTextTertiary : Color.driveTextPrimary)
+                            .strikethrough(task.status == .completed, color: Color.driveTextTertiary)
                         
                         Spacer()
                         
@@ -175,8 +175,8 @@ struct TaskCardView: View {
             Circle()
                 .fill(
                     task.status == .completed ?
-                    LinearGradient(colors: [.driveSuccess, .driveCyan], startPoint: .top, endPoint: .bottom) :
-                    LinearGradient(colors: [.drivePurple, .driveBlue], startPoint: .top, endPoint: .bottom)
+                    LinearGradient(colors: [Color.driveSuccess, Color.driveCyan], startPoint: .top, endPoint: .bottom) :
+                    LinearGradient(colors: [Color.drivePurple, Color.driveBlue], startPoint: .top, endPoint: .bottom)
                 )
                 .frame(width: 48, height: 48)
             

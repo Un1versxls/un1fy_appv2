@@ -66,7 +66,7 @@ struct OnboardingCompletionView: View {
                         icon: "crown.fill",
                         title: "Plan",
                         value: data.selectedPlan.rawValue.capitalized,
-                        valueColor: .drivePink,
+                        valueColor: Color.drivePink,
                         delay: 0.4
                     )
                 }
@@ -107,7 +107,7 @@ struct SummaryItem: View {
     let icon: String
     let title: String
     let value: String
-    var valueColor: Color = .driveTextSecondary
+    var valueColor: Color = Color.driveTextSecondary
     let delay: Double
     
     @State private var animateIn = false
@@ -169,7 +169,7 @@ struct ConfettiView: View {
     }
     
     private func createParticles() {
-        let colors: [Color] = [.drivePurple, .drivePink, .driveCyan, .driveBlue, .driveSuccess]
+        let colors: [Color] = [Color.drivePurple, Color.drivePink, Color.driveCyan, Color.driveBlue, Color.driveSuccess]
         
         for _ in 0..<30 {
             let particle = ConfettiParticle(

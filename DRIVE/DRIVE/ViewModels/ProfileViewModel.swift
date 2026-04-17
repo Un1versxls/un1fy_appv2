@@ -47,11 +47,11 @@ class ProfileViewModel: ObservableObject {
     var planBadgeInfo: (icon: String, color: Color) {
         switch profile.currentPlan {
         case .free:
-            return ("star", .driveTextTertiary)
+            return ("star", Color.driveTextTertiary)
         case .pro:
-            return ("crown.fill", .drivePurple)
+            return ("crown.fill", Color.drivePurple)
         case .elite:
-            return ("bolt.fill", .driveWarning)
+            return ("bolt.fill", Color.driveWarning)
         }
     }
     

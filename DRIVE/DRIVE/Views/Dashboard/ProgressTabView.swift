@@ -42,14 +42,14 @@ struct ProgressTabView: View {
                     title: "Current",
                     value: "\(stats.currentStreak)",
                     icon: "flame.fill",
-                    color: .driveWarning
+                    color: Color.driveWarning
                 )
                 
                 streakCard(
                     title: "Longest",
                     value: "\(stats.longestStreak)",
                     icon: "trophy.fill",
-                    color: .drivePurple
+                    color: Color.drivePurple
                 )
             }
         }
@@ -100,14 +100,14 @@ struct ProgressTabView: View {
                     title: "Total Points",
                     value: "\(stats.totalPoints)",
                     icon: "star.fill",
-                    color: .driveWarning
+                    color: Color.driveWarning
                 )
                 
                 pointsCard(
                     title: "Tasks Done",
                     value: "\(stats.totalTasksCompleted)",
                     icon: "checkmark.circle.fill",
-                    color: .driveSuccess
+                    color: Color.driveSuccess
                 )
             }
         }
