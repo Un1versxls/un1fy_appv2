@@ -149,8 +149,8 @@ struct OptionButton: View {
             .overlay(
                 RoundedRectangle(cornerRadius: DriveRadius.lg)
                     .strokeBorder(
-                        isSelected ? Color.clear : LinearGradient(
-                            colors: [Color.driveGlassBorder, Color.driveGlassBorderLight],
+                        isSelected ? LinearGradient.clear : LinearGradient(
+                            colors: [Color.driveGlassBorder, Color.driveGlassBorder],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         ),

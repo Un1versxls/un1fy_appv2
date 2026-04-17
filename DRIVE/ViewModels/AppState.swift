@@ -20,6 +20,10 @@ final class AppState: ObservableObject, Codable {
     // Shared instance for previews and compatibility
     static var shared: AppState = AppState()
     
+    static var `default`: AppState {
+        AppState()
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case hasCompletedOnboarding, lastOpenedVersion, dataVersion, lastSyncDate, isFirstLaunch
         case currentUser, currentPlan, dailyTasks, availableNiches

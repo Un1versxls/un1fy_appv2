@@ -102,7 +102,7 @@ struct AppPlan: Codable, Identifiable, Equatable {
     static let allPlans: [AppPlan] = [.free, .pro, .elite]
     
     enum CodingKeys: String, CodingKey {
-        case id, tier, name, price, durationDays, features, isActive, expirationDate
+        case id, tier, name, price, durationDays, features, isActive, expirationDate, type
     }
     
     init(from decoder: Decoder) throws {

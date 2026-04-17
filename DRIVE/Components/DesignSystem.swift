@@ -59,6 +59,7 @@ extension Color {
     static let driveSurface         = Color(UIColor.secondarySystemBackground)
     static let driveSurfaceElevated = Color(UIColor.tertiarySystemBackground)
     static let driveGlassBorder     = Color.white.opacity(0.12)
+    static let driveGlassBorderLight = Color.white.opacity(0.08)
     static let driveGlassBackground = Color.white.opacity(0.08)
 
     // Text
@@ -131,14 +132,14 @@ extension LinearGradient {
 }
 
 // MARK: - Onboarding Steps
-enum OnboardingStep: CaseIterable {
-    case welcome
-    case goalQuestion1
-    case goalQuestion2
-    case goalQuestion3
-    case goalQuestion4
-    case planSelection
-    case completion
+enum OnboardingStep: Int, CaseIterable {
+    case welcome = 0
+    case goalQuestion1 = 1
+    case goalQuestion2 = 2
+    case goalQuestion3 = 3
+    case goalQuestion4 = 4
+    case planSelection = 5
+    case completion = 6
 }
 
 // MARK: - ShapeStyle Convenience

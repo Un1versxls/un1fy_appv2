@@ -40,9 +40,13 @@ struct Niche: Codable, Identifiable, Equatable {
         Niche(name: "Meditation", description: "Master daily mindfulness practice", icon: "brain.head.profile", difficulty: .beginner, color: "#10B981"),
         Niche(name: "Reading", description: "Develop daily reading routines", icon: "book.fill", difficulty: .beginner, color: "#3B82F6"),
         Niche(name: "Coding", description: "Learn and practice coding daily", icon: "chevron.left.forwardslash.chevron.right", difficulty: .intermediate, color: "#F59E0B"),
-        Niche(name: "Writing", description: "Write consistently every day", icon: "pencil.and.outline", difficulty: .intermediate, color: "#EC4899", isPremium: true),
-        Niche(name: "Nutrition", description: "Improve your eating habits", icon: "leaf.fill", difficulty: .beginner, color: "#10B981", isPremium: true)
+        Niche(name: "Writing", description: "Write consistently every day", icon: "pencil.and.outline", isPremium: true, difficulty: .intermediate, color: "#EC4899"),
+        Niche(name: "Nutrition", description: "Improve your eating habits", icon: "leaf.fill", isPremium: true, difficulty: .beginner, color: "#10B981")
     ]
+    
+    static var testInstance: Niche {
+        sampleList[0]
+    }
     
     static let allNiches: [Niche] = sampleList
     

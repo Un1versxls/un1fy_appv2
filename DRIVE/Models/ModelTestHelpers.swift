@@ -25,7 +25,7 @@ extension UserProfile: Testable {
             xp: 540,
             streakCount: 12,
             level: 3,
-            selectedNiche: .testInstance,
+            selectedNiches: [.testInstance],
             dailyGoalMinutes: 45
         )
     }
