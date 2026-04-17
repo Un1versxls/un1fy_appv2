@@ -186,7 +186,7 @@ struct TaskDetailSheet: View {
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: DriveRadius.lg)
-                                .fill(.drivePrimary)
+                                .fill(Color.drivePrimary)
                         )
                     }
                 } else {
@@ -205,7 +205,7 @@ struct TaskDetailSheet: View {
                         .frame(maxWidth: .infinity)
                         .background(
                             RoundedRectangle(cornerRadius: DriveRadius.lg)
-                                .fill(.driveWarning)
+                                .fill(Color.driveWarning)
                         )
                     }
                 }

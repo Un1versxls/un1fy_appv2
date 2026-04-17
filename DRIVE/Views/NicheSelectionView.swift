@@ -163,7 +163,7 @@ struct NicheCard: View {
             if isSelected {
                 ZStack {
                     Circle()
-                        .fill(.drivePrimary)
+                        .fill(Color.drivePrimary)
                         .frame(width: 24, height: 24)
                     
                     Image(systemName: "checkmark")

@@ -191,7 +191,7 @@ struct ProgressTabView: View {
                             .frame(height: 8)
                         
                         RoundedRectangle(cornerRadius: DriveRadius.pill)
-                            .fill(.drivePrimary)
+                            .fill(Color.drivePrimary)
                             .frame(width: geometry.size.width * stats.progressToNextLevel, height: 8)
                     }
                 }
