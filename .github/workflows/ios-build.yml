@@ -25,6 +25,8 @@ jobs:
         echo "Workspace: $GITHUB_WORKSPACE"
         pwd
         ls -la
+        echo "--- Swift source files ---"
+        find "$GITHUB_WORKSPACE" -name "*.swift" | grep -v ".build" | grep -v DerivedData | sort
     
     - name: Update xcodeproj
       run: |
@@ -42,7 +44,18 @@ jobs:
           -sdk iphoneos \
           -derivedDataPath "$GITHUB_WORKSPACE/build" \
           -archivePath "$GITHUB_WORKSPACE/build/DRIVE.xcarchive" \
-          CODE_SIGNING_ALLOWED=NO
+          CODE_SIGNING_ALLOWED=NO \
+          2>&1 | tee /tmp/xcodebuild.log
+        # Extract exit code from xcodebuild (not tee)
+        exit ${PIPESTATUS[0]}
+    
+    - name: Show Swift errors
+      if: failure()
+      run: |
+        echo "=== SWIFT COMPILATION ERRORS ==="
+        grep -E "error:|warning:" /tmp/xcodebuild.log | grep -v "^note:" | head -100 || echo "No errors extracted"
+        echo "=== LAST 200 LINES OF BUILD LOG ==="
+        tail -200 /tmp/xcodebuild.log
     
     - name: Create ExportOptions.plist
       run: |
