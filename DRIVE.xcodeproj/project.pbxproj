@@ -215,15 +215,15 @@
 			sourceTree = "<group>";
 		};
 
-		A50000012345678912345678900000011 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				A20000012345678912345678900000040 /* GamificationService.swift */,
-				A20000012345678912345678900000041 /* StorageManager.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
+ 		A50000012345678912345678900000011 /* Services */ = {
+ 			isa = PBXGroup;
+ 			children = (
+ 				A20000012345678912345678900000042 /* GamificationService.swift */,
+ 				A20000012345678912345678900000043 /* StorageManager.swift */,
+ 			);
+ 			path = Services;
+ 			sourceTree = "<group>";
+ 		 };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
