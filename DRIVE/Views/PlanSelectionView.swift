@@ -37,7 +37,7 @@ struct PlanSelectionView: View {
                     Text("Choose Your Plan")
                         .font(.driveTitle2)
                         .foregroundStyle(Color.driveTextPrimary)
-                        .gradientText(.drivePrimary)
+                        .gradientText(LinearGradient.drivePrimary)
                     
                     Text("Select the plan that best fits your goals")
                         .font(.driveBody)

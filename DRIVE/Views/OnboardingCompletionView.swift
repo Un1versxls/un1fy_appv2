@@ -34,7 +34,7 @@ struct OnboardingCompletionView: View {
                     Text("You're All Set!")
                         .font(.driveTitle1)
                         .foregroundStyle(Color.driveTextPrimary)
-                        .gradientText(.drivePrimary)
+                        .gradientText(LinearGradient.drivePrimary)
                     
                     Text("Your plan has been activated")
                         .font(.driveBody)

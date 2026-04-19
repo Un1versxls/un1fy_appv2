@@ -32,7 +32,7 @@ struct WelcomeView: View {
                     
                     Text("DRIVE")
                         .font(.driveLargeTitle)
-                        .gradientText(.driveVibrant)
+                        .gradientText(LinearGradient.driveVibrant)
                         .glow(color: Color.drivePurple, radius: 15, intensity: 0.5)
                 }
                 .opacity(showContent ? 1 : 0)

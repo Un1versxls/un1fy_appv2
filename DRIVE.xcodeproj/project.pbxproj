@@ -47,7 +47,9 @@
 		A10000012345678900000026 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000003E /* ViewModifiers.swift */; };
 		A10000012345678900000027 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000001234567890000003F /* Assets.xcassets */; };
 		CC0000012345678900000001 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012345678900000002 /* DesignSystem.swift */; };
-/* End PBXBuildFile section */
+
+		A10000012345678912345678900000028 /* GamificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678912345678900000042 /* GamificationService.swift */; };
+		A10000012345678912345678900000029 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678912345678900000043 /* StorageManager.swift */; };/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A20000012345678900000001 /* DRIVEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRIVEApp.swift; sourceTree = "<group>"; };
@@ -92,7 +94,9 @@
 		CC0000012345678900000002 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		A2000001234567890000003F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A30000012345678900000001 /* DRIVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRIVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
+
+		A20000012345678912345678900000042 /* GamificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationService.swift; sourceTree = "<group>"; };
+		A20000012345678912345678900000043 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A40000012345678900000001 /* Frameworks */ = {
@@ -116,6 +120,7 @@
 		A50000012345678900000002 /* DRIVE */ = {
 			isa = PBXGroup;
 			children = (
+				A50000012345678912345678900000011 /* Services */,
 				A20000012345678900000001 /* DRIVEApp.swift */,
 				A2000001234567890000002F /* Info.plist */,
 				A2000001234567890000003F /* Assets.xcassets */,
@@ -207,6 +212,16 @@
 				A30000012345678900000001 /* DRIVE.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+
+		A50000012345678912345678900000011 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A20000012345678912345678900000040 /* GamificationService.swift */,
+				A20000012345678912345678900000041 /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,7 +335,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXSourcesBuildPhase section */
+
+			A10000012345678912345678900000028 /* GamificationService.swift in Sources */,
+			A10000012345678912345678900000029 /* StorageManager.swift in Sources */,/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		BB0000012345678900000001 /* Debug */ = {

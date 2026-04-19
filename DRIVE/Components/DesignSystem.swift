@@ -132,7 +132,9 @@ extension LinearGradient {
 }
 
 // MARK: - Onboarding Steps
-enum OnboardingStep: Int, CaseIterable {
+enum OnboardingStep: Int, CaseIterable, Identifiable {
+    var id: Int { self.rawValue }
+    
     case welcome = 0
     case goalQuestion1 = 1
     case goalQuestion2 = 2
