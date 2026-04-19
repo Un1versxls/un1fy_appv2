@@ -49,7 +49,8 @@
 		CC0000012345678900000001 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0000012345678900000002 /* DesignSystem.swift */; };
 
 		A10000012345678912345678900000028 /* GamificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678912345678900000042 /* GamificationService.swift */; };
-		A10000012345678912345678900000029 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678912345678900000043 /* StorageManager.swift */; };/* End PBXBuildFile section */
+		A10000012345678912345678900000029 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678912345678900000043 /* StorageManager.swift */; };
+		A10000012345678912345678912345678900000030 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000012345678912345678912345678900000044 /* OnboardingData.swift */; };/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A20000012345678900000001 /* DRIVEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DRIVEApp.swift; sourceTree = "<group>"; };
@@ -96,7 +97,8 @@
 		A30000012345678900000001 /* DRIVE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRIVE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 
 		A20000012345678912345678900000042 /* GamificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamificationService.swift; sourceTree = "<group>"; };
-		A20000012345678912345678900000043 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };/* End PBXFileReference section */
+		A20000012345678912345678900000043 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		A20000012345678912345678912345678900000044 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A40000012345678900000001 /* Frameworks */ = {
@@ -486,4 +488,5 @@
 /* End XCConfigurationList section */
 	};
 	rootObject = A90000012345678900000001 /* Project object */;
-}
+
+			A10000012345678912345678912345678900000030 /* OnboardingData.swift in Sources */,}
