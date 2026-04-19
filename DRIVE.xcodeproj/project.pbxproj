@@ -331,13 +331,12 @@
 				A10000012345678900000024 /* TaskCard.swift in Sources */,
 				A10000012345678900000025 /* Theme.swift in Sources */,
 				A10000012345678900000026 /* ViewModifiers.swift in Sources */,
+				A10000012345678912345678900000028 /* GamificationService.swift in Sources */,
+				A10000012345678912345678900000029 /* StorageManager.swift in Sources */,
 				CC0000012345678900000001 /* DesignSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-
-			A10000012345678912345678900000028 /* GamificationService.swift in Sources */,
-			A10000012345678912345678900000029 /* StorageManager.swift in Sources */,/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		BB0000012345678900000001 /* Debug */ = {
